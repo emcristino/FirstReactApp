@@ -1,55 +1,50 @@
 import React, {useState, useEffect} from 'react';
-import { useNavigate, Link} from "react-router-dom";
+import {Link} from "react-router-dom";
 import SaveExame from '../components/SaveExame';
 import '../index.css'
 import ExameList from './ExameList';
 
 
-    const EMPTYTEST = {
+    const testVuoto = { // inizializzo i campi a vuoto
         subject: "",
         grade: "",
         date: "",
     
     };
     
-    function Exame (){
-        const [test, setTest] = useState(); //variabile che arriva quando viene montato il component 
+    function Exame (){ 
+        const [test, setTest] = useState(); 
         const [subject, setSubject] = useState();
         const [grade, setGrade] = useState();
         const [date, setDate] = useState();
-        const [isChanged, setIsChanged] = useState(false);
-    
-const navigate= useNavigate()
+        const [cambia, setCambia] = useState(false); //controllo se lo stato del componente cambia
 
-        useEffect(() => {
-            setTest(EMPTYTEST);
-            console.log(EMPTYTEST)
-    
+
+        useEffect(() => {  //gestisco il ciclo di vita dei componenti 
+            setTest(testVuoto);
         }, [])
     
-        useEffect(() => {
-            if (isChanged) {
+        useEffect(() => {       //se la variabile è uguale a true parsifica il JSON localstorage all'interno della variabile exam
+            if (cambia) {
                 let exam = null;
-                let tempArray = [];
-                exam = JSON.parse(localStorage.getItem("esame"));
-                if (!exam) {
-                    tempArray.push(test);
-                    localStorage.setItem("esame", JSON.stringify(tempArray));
+                let Array = [];
+                exam = JSON.parse(localStorage.getItem("esame"));  // prendo item con esame 
+                if (!exam) {         // se exam è null allora  pusha test dentro Array 
+                    Array.push(test); 
+                    localStorage.setItem("esame", JSON.stringify(Array)); //memorizzo valore 
                 }
                 else {
-                    exam.push(test);
+                    exam.push(test);             //settiamo il nostro oggetto nel localstorage
                     localStorage.setItem("esame", JSON.stringify(exam));
-    
+
                 }
-                setIsChanged(false);
+                setCambia(false);
                 setSubject("");
                 setGrade("");
                 setDate("");
-                window.alert("Esame Caricato con successo!");
-    
-    
+                alert("Esame caricato nel libretto!");
             }
-        }, [isChanged])
+        }, [cambia])
     
         function onSubmit(e) {
             setTest({
@@ -57,16 +52,11 @@ const navigate= useNavigate()
                 grade: grade,
                 date: date
             })
-            setIsChanged(true);
-    
-            console.log(test);
-
-
+            setCambia(true);
         }
     
     
         function onChangeSubject(e) {
-            console.log(e);
             setSubject(e.target.value);
         }
     
@@ -77,13 +67,7 @@ const navigate= useNavigate()
             setDate(e.target.value);
         }
     
-        function newProduct() {
-            setTest({
-                subject: "",
-                grade: "",
-                date: ""
-            });
-        }
+     
     
     return(
         <div id= "homeDiv">
@@ -93,23 +77,23 @@ const navigate= useNavigate()
             <div id="form">
            
 
-        <form id = "form">
+        <form className = "flexForm">
         <label>Nome esame</label>
-        <input className ="inputField"name="subject" value={subject}   type='text' onChange={(e) => onChangeSubject(e)}/>
-
+        <br/>
+        <input className ="inputForm"name="subject" value={subject}   type='text' onChange={(e) => onChangeSubject(e)}/>
+        <br/>
+        <br/>
         <label> Voto esame</label>
-        <input className ="inputField" name="grade" value={grade}   type='number'  onChange={(e) => onChangeGrade(e)} />
-        
+        <br/>
+        <input className ="inputForm" name="grade" value={grade}   type='number'  onChange={(e) => onChangeGrade(e)} />
+        <br/>
         <label>Data esame</label>
-        <input className ="inputField" name="date"  value={date}  type='date' onChange={(e) => onChangeDate(e)}/>
-
-
+        <br/>
+        <input className ="inputForm" name="date"  value={date}  type='date' onChange={(e) => onChangeDate(e)}/>
+        <br/>
         <SaveExame callback = {ExameList} content={ <input className ="inputSubmit"  name="Submit" type='submit' value="Carica esame" onClick={() => onSubmit()}/>}/> 
-        
-        
+        <Link id='backButton' to="../exameList">Libretto</Link>
         </form>
-        <Link to="../exameList">Vai al Libretto</Link>
-    
     </div>
         </div>
         </div>

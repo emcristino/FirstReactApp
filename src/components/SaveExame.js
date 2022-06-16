@@ -8,7 +8,7 @@ function SaveExame(props) {
 
     return (
       <>
-        <div onClick={callbackFunction}>
+        <div id="saveExame" onClick={callbackFunction}>
           {props.content}
         </div>
       </>

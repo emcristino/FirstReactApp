@@ -30,28 +30,9 @@ img{
   margin-left: 0px;
   margin-top: 5%; 
   margin-bottom: 10px;
-}
-
-
-@media screen and (max-width: 500px){
-button.loadEsame {
-  margin: 20% 20% 20% 20% !important;
-  border-radius: 5px !important;
-  border: 1px solid !important;
-  width: 60%
-  }
-}
-
-
-@media screen and (max-width: 500px){
-#form {
-  margin: 30%!important;
+  display:flex;
+  align-items: center;
   
-}
-}
-
-.text {
-margin-left: 10%;
 }
 
 
@@ -62,26 +43,27 @@ margin-left: 10%;
   border: none;
   margin-bottom: 20%;
   margin-top: 5px;
- 
-
+  padding-left: 20%;
 
 }
 
 .inputSubmit{
-  height: 25px;
-  border-radius: 7px;
-  border: none;
-  background-color: orange;
-  color: white;
-margin-left: 20%;
-  
+margin-top: 2em;
+padding: 1.3em 3em;
+font-size: 12px;
+text-transform: uppercase;
+letter-spacing: 2.5px;
+font-weight: 500;
+color: #000;
+background-color: orange;
+border: none;
+border-radius: 45px;
+box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+transition: all 0.3s ease 0s;
+cursor: pointer;
+outline: none;
+color: #fff;
 }
-
-.inputSubmit:hover{
-  background-color: grey;
-}
-
-
 
  .text1{
 text-align: center;
@@ -89,36 +71,147 @@ text-align: center;
 }
 
 
+.inputForm {
+  background-color: #eee;
+  border: none;
+  padding: 1rem;
+  font-size: 1rem;
+  width: 13em;
+  border-radius: 1rem;
+  color: lightcoral;
+  box-shadow: 0 0.4rem #dfd9d9;
+  cursor: pointer;
+
+ }
+ 
+ input:focus {
+  outline-color: lightcoral;
+ }
 
 
+.flexForm{
+  display:flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
 
-
-
-
-
-#tabella{
-  width:50%;
-  margin:0 auto;
 }
 
-html {
-  display: table;
-  margin: auto;
+#backButton {
+margin-top: 2em;
+padding: 1.3em 3em;
+font-size: 12px;
+text-transform: uppercase;
+letter-spacing: 2.5px;
+font-weight: 500;
+color: #000;
+background-color: orange;
+border: none;
+border-radius: 45px;
+box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+transition: all 0.3s ease 0s;
+cursor: pointer;
+outline: none;
+color: #fff;
 }
 
-body {
-  display: table-cell;
-  vertical-align: middle;
-  width: 70%;
+#home {
+margin-top: 2em;
+padding: 1.3em 3em;
+font-size: 12px;
+text-transform: uppercase;
+letter-spacing: 2.5px;
+font-weight: 500;
+color: #000;
+background-color: orange;
+border: none;
+border-radius: 45px;
+box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+transition: all 0.3s ease 0s;
+cursor: pointer;
+outline: none;
+color: #fff;
 }
 
-.homeBackground {
-  background-color: #f6f6f6;
-  width: 100%;
-  height: 100vh;
+
+#text1 {
+  margin-top: 2em;
+  padding: 1.3em 3em;
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 2.5px;
+  font-weight: 500;
+  color: #000;
+  background-color: orange;
+  border: none;
+  border-radius: 45px;
+  box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease 0s;
+  cursor: pointer;
+  outline: none;
+  color: #fff;
 }
 
-td  {
-  border:2px solid gray;
-  padding:8px;
-  }
+#text2{
+margin-top: 2em;
+padding: 1.3em 3em;
+font-size: 12px;
+text-transform: uppercase;
+letter-spacing: 2.5px;
+font-weight: 500;
+color: #000;
+background-color: orange;
+border: none;
+border-radius: 45px;
+box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+transition: all 0.3s ease 0s;
+cursor: pointer;
+outline: none;
+color: #fff;
+}
+
+#libretto {
+  display:flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  margin-top: 2em;
+padding: 1.3em 3em;
+font-size: 12px;
+text-transform: uppercase;
+letter-spacing: 2.5px;
+font-weight: 500;
+background-color: orange;
+border: none;
+border-radius: 45px;
+box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+transition: all 0.3s ease 0s;
+cursor: pointer;
+outline: none;
+color: #fff;
+
+}
+
+
+#flexForm1,#flexForm2,.buttonsHOME{
+  display:flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+#flexForm3 {
+  display:flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  border-radius: 30px;
+background: #e0e0e0;
+box-shadow:  20px 20px 39px #bebebe,
+             -20px -20px 39px #ffffff;
+             margin: 2em;
+}
+
+.nome {
+  text-align: center;
+}

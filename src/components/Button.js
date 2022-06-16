@@ -9,7 +9,7 @@ function Button(props) {
 
     return (
       <>
-        <div onClick={callbackFunction}>
+        <div className="buttonsHOME" onClick={callbackFunction}>
           {props.content}
         </div>
       </>
